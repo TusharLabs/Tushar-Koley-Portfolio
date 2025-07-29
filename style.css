@@ -1,0 +1,444 @@
+/* General Setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    scroll-behavior: smooth; /* For smooth scrolling */
+}
+
+/* 3D Background Container */
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts the background behind everything */
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    z-index: 10;
+    text-align: center;
+}
+
+.nav-button {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-button:hover {
+    color: #3dff3d; /* Green color on hover */
+    text-shadow: 0 0 10px #3dff3d;
+}
+
+/* Main Content Wrapper */
+main {
+    padding-top: 100px; /* To avoid content hiding behind the fixed header */
+    padding-bottom: 100px; /* To avoid content hiding behind the fixed footer */
+}
+
+/* General Section Styling */
+.content-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(61, 255, 61, 0.4);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    /* --- STYLES FOR SCROLL-REVEAL ANIMATION --- */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* --- CLASS TO BE ADDED BY JS FOR VISIBLE STATE --- */
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    color: #3dff3d;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* --- NEW Profile Section --- */
+.profile-section {
+    text-align: left; /* Override center alignment */
+}
+
+.profile-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #3dff3d;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+h1 {
+    font-size: 3.5rem; /* Larger font size for the greeting */
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.objective {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px; /* Limit width of the text */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.resume-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #8A2BE2, #4A00E0);
+    transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+}
+
+.resume-button i {
+    margin-right: 10px;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill-item {
+    background-color: rgba(61, 255, 61, 0.1);
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.skill-item:hover {
+    background-color: #3dff3d;
+    color: #000000;
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    margin-right: 10px;
+}
+
+/* --- UPDATED Project Section --- */
+.project-type-title {
+    font-size: 1.5rem;
+    color: #3dff3d;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    margin-bottom: 25px;
+}
+.project-card:last-of-type {
+    margin-bottom: 0;
+}
+
+.project-card h4 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.project-content {
+    margin-top: 20px;
+}
+
+.project-features {
+    flex: 1;
+}
+
+.project-features ul {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.project-features li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-features li i {
+    color: #3dff3d; /* Icon color */
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 20px; /* Ensure alignment */
+    text-align: center;
+    margin-top: 4px; /* Align icon with text */
+}
+
+/* NEW Tech Tags */
+.tech-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.tech-tag {
+    background-color: rgba(61, 255, 61, 0.15);
+    color: #caffca;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(61, 255, 61, 0.3);
+}
+
+.project-link-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0 auto;
+    padding: 15px 30px;
+    background-color: #3dff3d;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.project-link-button i {
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.project-link-button:hover {
+    box-shadow: 0 0 20px #3dff3d;
+}
+
+.project-link-button:hover i {
+    transform: rotate(360deg) scale(1.2);
+}
+
+/* --- Education & Certifications --- */
+.education-item, .cert-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3dff3d;
+    text-align: left;
+    border-radius: 0 8px 8px 0;
+}
+.education-item:last-of-type, .cert-card:last-of-type {
+    margin-bottom: 0;
+}
+
+.education-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.education-item p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.education-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.education-link:hover {
+    color: #3dff3d;
+    text-decoration: underline;
+}
+
+
+.cert-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 1px solid #3dff3d;
+    color: #3dff3d;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.cert-button:hover {
+    background-color: #3dff3d;
+    color: #000;
+}
+
+
+/* Hobbies Section */
+.hobbies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+}
+
+.hobbies-container span {
+    font-size: 1.1rem;
+}
+.hobbies-container i {
+    color: #3dff3d;
+    margin-right: 8px;
+}
+
+/* Footer with Contact Buttons */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.contact-button {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0 15px;
+    transition: all 0.3s;
+}
+
+.contact-button:hover {
+    color: #3dff3d;
+    text-shadow: 0 0 15px #3dff3d;
+    transform: scale(1.2);
+}
+
+/* --- STYLES FOR MODAL --- */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid #3dff3d;
+  border-radius: 10px;
+  z-index: 20;
+  background-color: #111;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 0 30px rgba(61, 255, 61, 0.5);
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3dff3d;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3dff3d;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.modal-body {
+  padding: 15px;
+}
+
+.modal-body img {
+    width: 100%;
+    display: block;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  pointer-events: none;
+  z-index: 15;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-section {
+        text-align: center;
+    }
+    .project-content {
+        flex-direction: column;
+    }
+}
